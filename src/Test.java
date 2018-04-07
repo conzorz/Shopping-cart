@@ -1,13 +1,18 @@
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Test {
-	public static void main() {
+	public static void main(String[] args) {
 		int apple = 60, orange = 25;
-		int[] list= {};
+		int[] list= {apple, apple, orange, apple};
 		
 		int total=0;
-		for (int i=1; i<list.length; i++) {
+		NumberFormat n = NumberFormat.getCurrencyInstance(Locale.UK);
+		for (int i=0; i<list.length; i++) {
 			total+=list[i];
-			System.out.println("Price: " + total);
+			long formatPrice = total;
+			String price = n.format(total / 100.0);
+			System.out.println("Price: " + price);
 		}
 		
 		
